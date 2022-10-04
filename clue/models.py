@@ -19,10 +19,10 @@ class subscribe(models.Model):
 
 
 class ClueMain(models.Model):
-    clue = models.CharField(max_length=9999999)
-    answer = models.CharField(max_length=9999999)
+    clue = models.CharField(max_length=9999999, null=True)
+    answer = models.CharField(max_length=9999999, null=True)
     year = year = models.CharField(max_length=9999999, null=True, blank=True)
-    publish_date = models.DateField(auto_now_add=True)
+    publish_date = models.DateField(auto_now_add=True, null=True)
 
     def __str__(self):
         return f"{self.clue}"
