@@ -1,0 +1,37 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+{% block title %}
+Home
+{% endblock title %}
+
+{% block css %}
+  <link rel="stylesheet" href="{% static 'style.css'%}">
+{% endblock css %}
+
+{% block content %}
+  <section class="home_section_one">
+    <div class="container">
+      <form method="post"> {% csrf_token %}
+      <div class="home_card_div">
+        <div class="home_title_div">
+          <h1>SUBSCRIBE</h1>
+        </div>
+        <div class="home_input_div">
+           
+          <input type="email" name="email" placeholder="Enter Your E-mail">
+        </div>
+        <div class="home_section1_text_div">
+          <h4">Sign-up To Receive My Next Post</h4>
+            <p>Get Crossword hints, Tips and News direct to your Mailbox my Regular
+              Newsletter.</p>
+        </div>
+      </div>
+      <div class="home_last_chevron_div">
+        <button type="submit" style="border: none; background-color: inherit;"><i class="bi bi-chevron-double-right"></i></button>
+      </div>
+    </form>
+    </div>
+  </section>
+{% endblock content %}
+{% block js %}
+{% endblock js %}

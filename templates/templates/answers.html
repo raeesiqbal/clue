@@ -1,0 +1,59 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+{% block title %}
+Main
+{% endblock title %}
+{% block css %}
+<link rel="stylesheet" href="{% static 'style.css'%}">
+
+{% endblock css %}
+
+{% block content %}
+    <section class="clue_section">
+        <div class="container">
+            <div class="clue_main_div">
+                <div class="cross_last_chevron">
+                    <a href="/" type="button" style="text-decoration: none;color: inherit;"><i class="bi bi-chevron-double-left" style="font-size: 30px;
+                    color: #000;"></i></a>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6 col-md-6 col-sm-12">
+                        <div class="clue1_div">
+                            <div class="clue1_title_div">
+                                <h1>CLUE</h1>
+                            </div>
+                            <div class="clue1_input_div">
+                                <input type="text" value="{{search}}" disabled>
+                                <div class="clue1_input_div">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-12">
+                        <div class="clue2_div">
+                            <div class="clue2_title_div">
+                                <h1>ANSWERS</h1>
+                            </div>
+                                {% if clues %}                          
+                                    {% for clue in clues %}
+                                        <div class="clue_text_div">
+                                            <ul>
+                                                <li>{{ clue }}</li>
+                                            </ul>
+                                        </div>
+                                    {% endfor %}
+                                {% endif %}
+                                    {% if clues|length == 0 %}
+                                        <br>
+                                        <h2>Zero Matches Found!</h2>
+                                {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    {% endblock content %}
+
+{% block js %}
+{% endblock js %}

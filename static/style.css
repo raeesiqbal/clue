@@ -1,0 +1,233 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+.navbar_section {
+    background-color: #fff;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 1;
+}
+
+.navlogo {
+    height: 90px;
+    width: auto;
+}
+
+.mypostion {
+    position: relative;
+    top: -20px;
+}
+
+.navbar ul li a {
+    font-weight: bold;
+    color: black !important;
+    letter-spacing: 1.5px;
+}
+
+.nav_twitter_logo_div a {
+    border: 1px solid rgb(208, 18, 18);
+    padding: 8px 12px;
+    border-radius: 50%;
+    color: rgb(255, 255, 255);
+}
+
+.nav_twitter_logo_div i {
+    font-size: 18px;
+}
+
+.navtoggler {
+    font-size: 28px;
+    color: #000;
+}
+
+.navbar-light .navbar-toggler {
+    border: none;
+    box-shadow: none;
+    outline: none;
+}
+.navul{
+    gap: 25px;
+}
+/* Home_Section_Style_Start */
+.home_section_one{
+    margin-top: 100px;
+}
+.home_card_div{
+    width: 100%;
+    max-width: 380px;
+    height: auto;
+    margin: auto;
+}
+.home_title_div{
+    padding-top: 60px;
+    text-align: center;
+}
+.home_title_div h1{
+   font-size: 70px;
+   font-weight: bolder;
+   border-bottom: 1px solid #000;
+   color: #000;
+}
+.home_input_div{
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+}
+.home_input_div input{
+    width: 100%;
+    height: 50px;
+    border: 1px solid #000;
+    border-radius: 40px;
+    text-align: center;
+    padding: 25px 20px;
+    color: #000;
+    width: 100%;
+    max-width: 300px;
+    height: 70px;
+}
+.home_input_div input::placeholder{
+    text-align: center;
+    color: #000;
+}
+.home_section1_text_div{
+    margin-top: 50px;
+}
+.home_section1_text_div h4{
+    font-size: 22px;
+    font-weight: bold;
+    color: #000;
+}
+.home_section1_text_div p{
+    font-size: 20px;
+    padding-top: 15px;
+    font-weight: 200;
+}
+.home_last_chevron_div{
+    text-align: end;
+}
+.home_last_chevron_div i{
+    font-size: 30px;
+    color: #000;
+    font-weight: bolder;
+}
+.blog_section_one{
+    margin-top: 100px;
+}
+.blog_title_div{
+    padding-top: 100px;
+    text-align: center;
+}
+.blog_title_div h1{
+   font-size: 75px;
+   font-weight: bolder;
+   color: #000;
+}
+.blog_card_body_div{
+    margin-top: 20px !important;
+    background-color: rgb(229, 209, 163);
+    padding: 20px;
+    border-radius: 8px;
+    height: auto;
+    min-height: 300px;
+    width: 100%;
+    max-width: 600px;
+    margin: auto;
+}
+.blog_post_number{
+    font-size: 20px;
+    color: rgb(0, 0, 0);
+}
+.blog_card_text_div{
+    padding-top: 20px;
+}
+.blog_card_image{
+    padding-top: 10px;
+}
+.blog_card_image img{
+    width: 100%;
+    height: 100px;
+    object-fit: cover;
+}
+.blog_card_text_div h2, h4{
+  text-align: center;
+  color: rgb(0, 0, 0);
+}
+.clue_section{
+    margin-top: 150px;
+}
+.clue1_div{
+    margin-top: 50px;
+}
+.clue1_title_div{
+    margin-top: 20px;
+}
+.clue1_title_div h1{
+    font-size: 70px;
+    font-weight: bolder;
+    color: #000;
+}
+.clue1_input_div{
+    margin-top: 50px;
+}
+.clue1_input_div input{
+    border: 1px solid #000;
+    border-radius: 40px;
+    text-align: center;
+    padding: 25px 20px;
+    color: #000;
+    width: 100%;
+    max-width: 270px;
+    height: 70px;
+}
+.clue1_input_div input::placeholder{
+    color: #000;
+}
+.clue2_div{
+    margin-top: 50px;
+}
+.clue2_title_div{
+    margin-top: 20px;
+}
+.clue2_title_div h1{
+    font-size: 70px;
+    font-weight: bolder;
+    color: #000;
+}
+.clue_text_div ul li{
+    font-size: 30px;
+    color: #000;
+}
+@media (max-width: 991px) {
+    .navul{
+        gap: 10px;
+    }
+    .homemt{
+        margin-top: 10px;
+    }
+}
+@media (max-width: 576px) {
+    .home_title_div h1{
+        font-size: 60px;
+     }
+     .navlogo {
+        height: 50px;
+        width: auto;
+    }
+    .clue2_title_div h1{
+        font-size: 50px;
+    }
+    .clue1_title_div h1{
+        font-size: 50px;
+    }
+}
+@media (max-width: 540px) {
+    .home_title_div h1{
+        font-size: 48px;
+     }
+}

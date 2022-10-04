@@ -1,0 +1,126 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+.navbar_section {
+    background-color: #fff;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 1;
+}
+
+.navimg{
+    display: none;
+}
+.navbar ul li a {
+    font-weight: bold;
+    color: black !important;
+    letter-spacing: 1.5px;
+}
+
+.nav_twitter_logo_div a {
+    border: 1px solid #000;
+    padding: 8px 12px;
+    border-radius: 50%;
+    color: #000;
+}
+
+.nav_twitter_logo_div i {
+    font-size: 18px;
+}
+
+.navtoggler {
+    font-size: 28px;
+    color: #000;
+}
+
+.navbar-light .navbar-toggler {
+    border: none;
+    box-shadow: none;
+    outline: none;
+}
+
+.navul {
+    gap: 25px;
+}
+
+/* Cross_Section_Style_Satrt */
+.cross_Section{
+    margin-top: 100px;
+}
+.cross_card_main_div{
+    margin-top: 200px !important;
+    width: 100%;
+    max-width: 380px;
+    height: auto;
+    margin: auto;
+}
+.cross_img_div{
+    text-align: center;
+}
+.cross_img_div img{
+  height: 180px;
+  width: auto;
+}
+.cross_input_div{
+    text-align: center;
+}
+.cross_input_div .input1{
+    width: 100%;
+    height: 50px;
+    border: 1px solid #000;
+    border-radius: 20px;
+    text-align: center;
+    padding: 25px 20px;
+    color: #000;
+    width: 100%;
+    max-width: 270px;
+    height: 70px;
+}
+.cross_input_div .input1::placeholder{
+    text-align: center;
+    color: #000;
+}
+.cross_input_div .input2{
+    margin-top: 30px;
+    width: 100%;
+    height: 50px;
+    border: 1px solid #000;
+    border-radius: 40px;
+    text-align: center;
+    padding: 25px 20px;
+    color: #000;
+    width: 100%;
+    max-width: 200px;
+    height: 70px;
+}
+.cross_last_chevron{
+    margin-top: 40px;
+}
+.cross_last_chevron i{
+    font-size: 30px;
+    color: #000;
+}
+.cross_input_div .input2::placeholder{
+    text-align: center;
+    color: #000;
+}
+@media (max-width: 991px) {
+    .navul {
+        gap: 10px;
+    }
+
+    .homemt {
+        margin-top: 10px;
+    }
+    .navimg{
+        display: block;
+        height: 70px;
+        width: auto;
+    }
+}

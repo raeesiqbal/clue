@@ -1,0 +1,2 @@
+ssh root@159.223.11.21
+pw: CrossWood@786Clue
