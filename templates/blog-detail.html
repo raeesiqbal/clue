@@ -1,0 +1,67 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+{% block title %}
+Blog | Detail
+{% endblock title %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'blog-style.css'%}">
+{% endblock css %}
+
+{% block content %}
+<section>
+    <div class="container r">
+        <div class="row min-h-100 align-items-center">
+            <div>
+                {% for i in blog_clues %}
+                <button type="button" class="clue-btn" onclick="getWords('{{i.clue.id}}')">
+                    {{i.clue}}
+                </button>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>
+<div class="modal fade" id="word-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Answers</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}
+{% block js %}
+<script>
+    function getWords(id) {
+        id = parseInt(id)
+        $.ajax({
+            type: "GET",
+            url: `/clue-word/${id}`,
+            dataType: "json",
+            success: function (data) {
+                $(".modal-body").html('');
+                for (var x in data) {
+                    $(".modal-body").append(`
+                        <button class="clue-btn" style="cursor:default;">
+                            ${data[x].word}
+                        </button>
+                    `)
+                }
+                $("#word-modal").modal("toggle");
+
+            },
+            error: (err) => {
+                console.log(err);
+            },
+            cache: false,
+            contentType: false,
+            processData: false,
+        });
+    }
+</script>
+{% endblock js %}

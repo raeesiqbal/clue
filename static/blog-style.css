@@ -1,0 +1,73 @@
+.r-main-card {
+  overflow: hidden;
+  border-radius: 15px;
+  -webkit-box-shadow: 0px 7px 22px 0px rgba(0, 0, 0, 0.33);
+  -moz-box-shadow: 0px 7px 22px 0px rgba(0, 0, 0, 0.33);
+  box-shadow: 0px 7px 22px 0px rgba(0, 0, 0, 0.33);
+  transition: 0.25s;
+}
+.r-card-img {
+  height: 230px;
+  width: 200%;
+  background-position: center;
+  object-fit: cover;
+}
+.card-inner-body {
+  background: #333333;
+  color: #ffffff;
+}
+.title-card {
+  text-align: center;
+}
+
+.clue-btn {
+  background: #ffffff;
+  color: #000000;
+  margin: 10px;
+  border-radius: 20px;
+  padding: 4px 15px;
+  border: 1px solid #000000;
+  transition: 0.25s;
+}
+.clue-btn:hover {
+  padding: 6px 20px;
+  background: #000000;
+  color: #ffffff;
+  transition: 0.25s;
+  -webkit-box-shadow: 0px 7px 22px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 7px 22px 0px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 7px 22px 0px rgba(0, 0, 0, 0.75);
+}
+.modal-footer .clue-btn {
+  padding: 4px 20px;
+}
+.clue-single-card a {
+  text-decoration: none;
+  color: #ffffff;
+}
+.r-card-outer {
+  padding: 20px;
+  transition: 0.25s;
+}
+.r-card-outer:hover {
+  padding-top: 10px;
+  transition: 0.25s;
+}
+.r-card-outer:hover .r-main-card {
+  -webkit-box-shadow: 0px 7px 22px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 7px 22px 0px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 7px 22px 0px rgba(0, 0, 0, 0.75);
+  transition: 0.25s;
+}
+
+@media (min-device-width: 200px) and (max-device-width: 769px) {
+  .r {
+    padding-top: 150px;
+  }
+}
+
+@media (min-device-width: 1024px) and (max-device-width: 4000px) {
+  .min-h-100 {
+    min-height: 100vh;
+  }
+}

@@ -1,0 +1,132 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+{% block title %} Clue | Add {% endblock title %}
+
+{% block css %} {% endblock css %}
+
+{% block content %}
+<section class="blog_section_one">
+    <div class="container">
+        <div class="blog_title_div">
+            <h2 class="mt-5">Add DB</h2>
+        </div>
+        <div class="row mt-5 justify-content-center">
+            <div class="col-12 col-md-6">
+                <form action="{% url 'add_clue' %}" method="POST" enctype="multipart/form-data">
+                    {% csrf_token %} {% comment %}
+                    <div class="form-group mb-2">
+                        <label for="exampleFormControlSelect1">Select excel file</label>
+                        <input class="form-control" type="file" name="file" id="" required />
+                    </div>
+                    {% endcomment %}
+                    <div class="dropzone col-11 col-md-7" id="my-dropzone"></div>
+                    <div class="col-12 d-flex justify-content-center">
+                        <button style="display: none" class="btn col-11 col-md-7 btn-primary mt-3" id="submit-button"
+                            type="submit">
+                            submit
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="toast-container position-fixed bottom-0 end-0 p-3">
+        <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-header">
+                <img src="{% static 'img/Capture.png' %}" style="width: 20px" class="rounded me-2" alt="..." />
+                <strong class="me-auto">Task is asigned.</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+            <div class="toast-body">
+                Hello, Clue upload/scrap task is assigned to the worker. We will let you
+                know once its completed.
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock content %}
+
+{% block js %}
+<script>
+    function getCookie(name) {
+        let cookieValue = null;
+        if (document.cookie && document.cookie !== "") {
+            const cookies = document.cookie.split(";");
+            for (let i = 0; i < cookies.length; i++) {
+                const cookie = cookies[i].trim();
+                // Does this cookie string begin with the name we want?
+                if (cookie.substring(0, name.length + 1) === name + "=") {
+                    cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                    break;
+                }
+            }
+        }
+        return cookieValue;
+    }
+
+    Dropzone.options.myDropzone = {
+        // camelized version of the `id`
+        url: "add-db",
+        paramName: "file",
+        createImageThumbnails: true,
+        maxFiles: 1,
+        addRemoveLinks: true,
+        acceptedFiles: ".tsv",
+        dictInvalidFileType: "You can only upload a XLSX file.",
+        uploadMultiple: false,
+        autoProcessQueue: false,
+        headers: {
+            "X-Requested-With": "XMLHttpRequest",
+            "X-CSRFToken": getCookie("csrftoken"),
+        },
+        accept: function (file, done) {
+            if (file.name == "justinbieber.jpg") {
+                done("Naha, you don't.");
+            } else {
+                done();
+            }
+        },
+        init: function () {
+            var myDropzone = this;
+            this.on("addedfile", (file) => {
+                $("#submit-button").show();
+            });
+            this.on("removedfile", (file) => {
+                $("#submit-button").hide();
+            });
+            this.on("success", (file, response) => {
+                $("#submit-button").hide();
+                console.log("i am success", response);
+                this.removeAllFiles(true);
+                const toastLiveExample = document.getElementById("liveToast");
+                const toast = new bootstrap.Toast(toastLiveExample);
+                toast.show();
+            });
+            this.on("sending", function () {
+                // Gets triggered when the form is actually being sent.
+                // Hide the success button or the complete form.
+            });
+            this.on("uploadprogress", (file, progress, bytesSent) => {
+                if (file.previewElement) {
+                    for (let node of file.previewElement.querySelectorAll(
+                            "[data-dz-uploadprogress]"
+                        )) {
+                        node.nodeName === "PROGRESS" ?
+                            (node.value = progress) :
+                            (node.style.width = `${progress}%`);
+                    }
+                }
+            });
+            document
+                .getElementById("submit-button")
+                .addEventListener("click", function (e) {
+                    // Make sure that the form isn't actually being sent.
+                    e.preventDefault();
+                    e.stopPropagation();
+                    myDropzone.processQueue();
+                });
+        },
+    };
+</script>
+{% endblock js %}

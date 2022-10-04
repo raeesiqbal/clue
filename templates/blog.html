@@ -6,50 +6,60 @@ Blog
 
 {% block css %}
 <link rel="stylesheet" href="{% static 'style.css'%}">
-<style>
-    .fullclick {
-      margin: 1em 0;
-      padding: 0;
-      max-width: 30em;
-    }
-    .fullclick li {
-      list-style: none;
-      margin: 1em 0;
-      padding: 20px 10px;
-      background: #2b2b2b;
-      position: relative;
-    }
-    .fullclick a.main {
-      color: #85baff;
-      text-align: right;
-      display: block;
-      z-index: 1;
-    }
-    .fullclick li a.main::after {
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      content: ' ';
-    }
-  </style>
 {% endblock css %}
 
 {% block content %}
-    <section class="fullclick">
+    <section class="blog_section_one">
         <div class="container">
             <div class="blog_title_div">
-                <h1>THE SLEUTH BLOG</h1>
+                <h1>BLOG</h1>
             </div>
             <div class="row mt-5">
-                {% for post in object_list %}
+                {% for record in records %}
+                <div class="col-lg-3 col-md-4 col-sm-6">
                     <div class="blog_card_body_div">
                         <div class="blog_post_number">
-                            <a class="nav-link" href="{% url 'blog-detail' post.pk %}" class="main">{{ post.title }}</a>
+                            <h3>{{ record.blog_title }}</h3>
+                        </div>
+                        <div class="blog_card_image">
+                            <img src="{{ record.blog_img.url }}">
+                        </div>
+                        <div class="blog_card_text_div">
+                            <h4>{{ record.blog_description|safe|truncatechars:35 }}</h4>
                         </div>
                     </div>
+                </div>
                 {% endfor %}
+                <!-- <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="blog_card_body_div">
+                        <div class="blog_post_number">
+                            <h3>02</h3>
+                        </div>
+                        <div class="blog_card_text_div">
+                            <h2>Blog Post 2</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="blog_card_body_div">
+                        <div class="blog_post_number">
+                            <h3>03</h3>
+                        </div>
+                        <div class="blog_card_text_div">
+                            <h2>Blog Post 3</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="blog_card_body_div">
+                        <div class="blog_post_number">
+                            <h3>03</h3>
+                        </div>
+                        <div class="blog_card_text_div">
+                            <h2>Blog Post 3</h2>
+                        </div>
+                    </div>
+                </div> -->
             </div>
         </div>
     </section>

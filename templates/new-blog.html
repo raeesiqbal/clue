@@ -1,0 +1,40 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+{% block title %}
+Blog | List
+{% endblock title %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'blog-style.css'%}">
+{% endblock css %}
+
+{% block content %}
+<div class="container" style="margin-top:150px;">
+    <div class="row align-items-center">
+        {% for i in blogs %}
+        <div class="col-12 col-md-6 col-lg-4 clue-single-card">
+            <a href="{% url 'blog_detail' i.id %}">
+                <div class="r-card-outer">
+                    <div class="r-main-card">
+                        <img src="{{i.image.url}}" class="img-fluid r-card-img" alt="blog-picture" />
+                        <div class="p-2 card-inner-body">
+                            <h6 class=" mb-3 title-card">{{ i.title }}</h6>
+                            <div class="d-flex justify-content-between">
+                                <div>
+                                    <h6 class="ps-2 mt-2 mb-0">Total Clues</h6>
+                                </div>
+                                <div class="pe-2">
+                                    <h6 class="ps-2 mt-2 mb-0">{{i.clue_count}}</h6>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock content %}
+{% block js %}
+{% endblock js %}
