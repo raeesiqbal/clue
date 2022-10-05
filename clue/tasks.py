@@ -130,17 +130,17 @@ def res(x):
                 clue = ClueMain.objects.filter(clue=ii["word"]).first()
                 if clue:
                     BlogClue.objects.create(blog=blog, clue=clue)
-                else:
-                clue_added = clue_added + 1
+                    clue_added = clue_added + 1
+
     if BlogClue.objects.filter(blog=blog).exists():
         blog_created = True
+        blog.clue_count = clue_added
+        blog.save()
     else:
         blog_created = False
         Blog.objects.get(id=blog.id).delete()
     worker = WorkerResult.objects.create(
         clue_added=clue_added, data=x, blog_created=blog_created
     )
-    blog.clue_count = clue_added
-    blog.save()
     worker_email(worker.id)
     return True
