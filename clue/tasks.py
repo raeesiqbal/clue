@@ -29,13 +29,15 @@ def scrapCluee(data_set):
         }
         if not ClueMain.objects.filter(clue=cluu).exists():
             try:
-                ser_obj = Service(
-                    "C:/Users/Muhammad Raees/OneDrive/Desktop/selenium/selenium/chromedriver.exe"
-                )
+                ser_obj = Service("/usr/local/bin/chromedriver")
             except InvalidSessionIdException:
                 result.update({"scraping-error": True})
             options = Options()
+            WINDOW_SIZE = "1920,1080"
             options.page_load_strategy = "eager"
+            options.add_argument("--headless")
+            options.add_argument("--window-size=%s" % WINDOW_SIZE)
+            options.add_argument("--no-sandbox")
             driver = webdriver.Chrome(service=ser_obj, options=options)
             try:
                 clu = "-".join(clu.split())
