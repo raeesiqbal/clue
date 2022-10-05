@@ -36,7 +36,7 @@ class ClueMain(models.Model):
 
 class Blog(models.Model):
     title = models.CharField(max_length=9999999)
-    image = models.ImageField(default="img/Capture.png")
+    image = models.ImageField(default="Capture.png")
     active = models.BooleanField(default=False)
     clue_count = models.IntegerField(default=0)
     publish_date = models.DateField(auto_now_add=True)
