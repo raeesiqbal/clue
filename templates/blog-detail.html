@@ -14,7 +14,7 @@ Blog | Detail
         <div class="row min-h-100 align-items-center">
             <div>
                 {% for i in blog_clues %}
-                <button type="button" class="clue-btn" onclick="getWords('{{i.clue.id}}')">
+                <button type="button" class="clue-btn" onclick="getWords('{{i.clue.clue}}')">
                     {{i.clue}}
                 </button>
                 {% endfor %}
@@ -37,11 +37,10 @@ Blog | Detail
 {% endblock content %}
 {% block js %}
 <script>
-    function getWords(id) {
-        id = parseInt(id)
+    function getWords(clue) {
         $.ajax({
             type: "GET",
-            url: `/clue-word/${id}`,
+            url: `/clue-word/${clue}`,
             dataType: "json",
             success: function (data) {
                 $(".modal-body").html('');

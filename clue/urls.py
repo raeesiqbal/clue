@@ -6,9 +6,7 @@ urlpatterns = [
     path("", views.index, name="index"),
     path("blog/", views.myblog),
     path("blog-detail/<int:id>", views.blog_detail, name="blog_detail"),
-    path("clue-word/<int:id>", views.clue_word, name="clue_words"),
+    path("clue-word/<str:clue>", views.clue_word, name="clue_words"),
     path("subscribe/", views.subscribeview),
-    path("runThread/", views.runThread),
     path("add-clue", views.addClue, name="add_clue"),
-    path("add-db", views.addDb, name="add_db"),
 ]

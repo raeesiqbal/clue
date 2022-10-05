@@ -5,14 +5,14 @@ from django.core.mail import EmailMultiAlternatives
 
 
 def worker_email(id):
-    url = f"http://127.0.0.1:8000/admin/clue/workerresult/{id}/change/"
+    url = f"https://www.crosswordsleuth.com/admin/clue/workerresult/{id}/change/"
     context = {
         "url": url,
     }
     html_content = render_to_string("worker-email.html", context=context).strip()
 
     subject = "Worker task completed."
-    recipients = ["rayiszafar@gmail.com"]
+    recipients = ["rayiszafar@gmail.com", "kenny@henryandtosh.com"]
     reply_to = ["noreply@worker.com"]
     msg = EmailMultiAlternatives(
         subject,

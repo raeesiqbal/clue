@@ -19,41 +19,24 @@ class subscribe(models.Model):
 
 
 class ClueMain(models.Model):
-    clue = models.CharField(max_length=9999999, null=True)
-    answer = models.CharField(max_length=9999999, null=True)
+    clue = models.CharField(max_length=9999999)
+    answer = models.CharField(max_length=9999999)
     year = year = models.CharField(max_length=9999999, null=True, blank=True)
-    publish_date = models.DateField(auto_now_add=True, null=True)
+    publish_date = models.DateField(auto_now_add=True)
+
+    def serialize(self):
+        return {
+            "id": self.id,
+            "word": self.answer,
+        }
 
     def __str__(self):
         return f"{self.clue}"
 
 
-# class Clue(models.Model):
-#     clue = models.CharField(max_length=9999999)
-
-#     def __str__(self):
-#         return f"{self.clue}"
-
-
-# class Word(models.Model):
-#     clue = models.ForeignKey(Clue, on_delete=models.CASCADE)
-#     word = models.CharField(max_length=9999999, null=True, blank=True)
-#     year = models.CharField(max_length=9999999, null=True, blank=True)
-#     publish_date = models.DateField(auto_now_add=True)
-
-#     def serialize(self):
-#         return {
-#             "id": self.id,
-#             "word": self.word,
-#         }
-
-#     def __str__(self):
-#         return f"{self.word}"
-
-
 class Blog(models.Model):
     title = models.CharField(max_length=9999999)
-    image = models.ImageField(default="images/Capture.png")
+    image = models.ImageField(default="img/Capture.png")
     active = models.BooleanField(default=False)
     clue_count = models.IntegerField(default=0)
     publish_date = models.DateField(auto_now_add=True)

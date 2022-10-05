@@ -103,16 +103,6 @@ DATABASES = {
     }
 }
 
-# DATABASES = {
-#     "default": {
-#         "ENGINE": "django.db.backends.postgresql",
-#         "NAME": "crosswood",
-#         "USER": "postgres",
-#         "PASSWORD": "CrossWood@786Clue",
-#         "HOST": "159.223.11.21",
-#         "PORT": "5432",
-#     }
-# }
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -158,20 +148,20 @@ MEDIA_URL = "/media/"
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 
-# CELERY_BROKER_URL = "pyamqp://guest@localhost//"
-# CELERY_RESULT_BACKEND = "django-db"
-# CELERY_CACHE_BACKEND = "django-cache"
-# CELERY_TASK_TRACK_STARTED = True
-# # CELERY_TASK_TIME_LIMIT = 30 * 60
-# CELERY_TASK_SERIALIZER = "pickle"
-# CELERY_ACCEPT_CONTENT = ["json", "pickle", "application/text"]
+CELERY_BROKER_URL = "pyamqp://guest@localhost//"
+CELERY_RESULT_BACKEND = "django-db"
+CELERY_CACHE_BACKEND = "django-cache"
+CELERY_TASK_TRACK_STARTED = True
+# CELERY_TASK_TIME_LIMIT = 30 * 60
+CELERY_TASK_SERIALIZER = "pickle"
+CELERY_ACCEPT_CONTENT = ["json", "pickle", "application/text"]
 
-# EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
-# EMAIL_HOST = "smtp.gmail.com"
-# EMAIL_HOST_USER = "chimju47@gmail.com"
-# EMAIL_HOST_PASSWORD = "ganqpgucujrzhqce"
-# EMAIL_PORT = 587
-# EMAIL_USE_TLS = True
-# DEFAULT_FROM_EMAIL = "<noreply@worker.com>"
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+EMAIL_HOST = "smtp.gmail.com"
+EMAIL_HOST_USER = "chimju47@gmail.com"
+EMAIL_HOST_PASSWORD = "ganqpgucujrzhqce"
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+DEFAULT_FROM_EMAIL = "<noreply@worker.com>"
 
-# DATA_UPLOAD_MAX_MEMORY_SIZE = 52428800
+DATA_UPLOAD_MAX_MEMORY_SIZE = 52428800
