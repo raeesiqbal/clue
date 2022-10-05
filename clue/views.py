@@ -38,8 +38,12 @@ def addClue(request):
             # scrapCluee.chunks(data_set, 1).group().apply_async()
             # jobs = group([scrapCluee.chunks(data_set, 1)])
             # jobs.apply_async()
+
+            # callback = res.s()
+            # header = [scrapCluee.chunks(data_set, 5).group()]
+            # result = chord(header)(callback)
             callback = res.s()
-            header = [scrapCluee.chunks(data_set, 5).group()]
+            header = [scrapCluee.chunks(data_set, 100).group()]
             result = chord(header)(callback)
             return JsonResponse({"done": True}, safe=False)
         return redirect("add_clue")
