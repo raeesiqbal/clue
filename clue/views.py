@@ -13,14 +13,14 @@ def index(request):
     digits = request.GET.get("digits", False)
     answersFinal = []
     if search:
-        if ClueMain.objects.filter(clue=search).exists():
-            clues = ClueMain.objects.filter(clue=search).distinct("answer")
-            if digits:
-                for clue in clues:
-                    if len(clue.answer) == int(digits) and clue not in answersFinal:
-                        answersFinal.append(clue)
-            else:
-                answersFinal = clues
+        # if ClueMain.objects.filter(clue__icontains=search).exists():
+        clues = ClueMain.objects.filter(clue__icontains=search).distinct("answer")
+        if digits:
+            for clue in clues:
+                if len(clue.answer) == int(digits) and clue not in answersFinal:
+                    answersFinal.append(clue)
+        else:
+            answersFinal = clues
         context = {"clues": answersFinal, "search": search}
         return render(request, "answers.html", context)
     return render(request, "index.html")
